@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UserApplication<user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.akash.spring_junit_test_app.user.UserApplication",
+            "projectName": "user",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
