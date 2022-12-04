@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 import com.akash.spring_junit_test_app.user.Repository.UserRepo;
 import com.akash.spring_junit_test_app.user.enities.User;
 
-
 @Service
-public class UserServiceImpl implements UserServices{
+public class UserServiceImpl implements UserServices {
 
     @Autowired
     private UserRepo userRepository;
@@ -37,8 +36,7 @@ public class UserServiceImpl implements UserServices{
 
     @Override
     public void deleteUser(User user) {
-        userRepository.delete(user);        
+        userRepository.delete(user);
     }
 
-    
 }
