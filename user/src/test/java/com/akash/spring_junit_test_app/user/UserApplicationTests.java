@@ -29,6 +29,19 @@ class UserApplicationTests {
 
 	@Test
 	void testAddUser() {
+		User user = new User(1, "Mahavir", "ojha", "m@gmail.com");
+		when(service.addUser(user)).thenReturn(user);
+		User response = userController.addUser(user);
+		verify(service).addUser(user);
+		assertNotNull(response);
+		assertNotNull(response.getId());
+		assertNotNull(response.getFirstName());
+		assertNotNull(response.getLastName());
+		assertNotNull(response.getEmail());
+		assertEquals(response.getId(), user.getId());
+		assertEquals(response.getFirstName(), user.getFirstName());
+		assertEquals(response.getLastName(), user.getLastName());
+		assertEquals(response.getEmail(), user.getEmail());
 	}
 
 	@Test
@@ -37,6 +50,7 @@ class UserApplicationTests {
 
 	@Test
 	void testUpdateUser() {
+
 	}
 
 	@Test
