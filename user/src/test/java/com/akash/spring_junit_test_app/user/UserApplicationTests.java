@@ -2,6 +2,7 @@ package com.akash.spring_junit_test_app.user;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -46,6 +47,10 @@ class UserApplicationTests {
 
 	@Test
 	void testDeleteUser() {
+		User user = new User();
+		doNothing().when(service).deleteUser(user);
+		userController.deleteUser(user);
+		verify(service).deleteUser(user);
 	}
 
 	@Test
