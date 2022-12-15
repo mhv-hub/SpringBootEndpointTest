@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.akash.spring_junit_test_app.user.Repository.UserRepo;
-import com.akash.spring_junit_test_app.user.enities.User;
+import com.akash.spring_junit_test_app.user.Repository.RegisterUserRepo;
+import com.akash.spring_junit_test_app.user.dto.RegisterUser;
 
 @Service
-public class UserServiceImpl implements UserServices {
+public class RegisterUserServiceImpl implements RegisterUserService {
 
     @Autowired
-    private UserRepo userRepository;
+    private RegisterUserRepo userRepository;
 
     @Override
-    public User getUserById(int id) {
+    public RegisterUser getUserById(int id) {
         try {
             return userRepository.findById(id).get();
         } catch (Exception e) {
@@ -25,22 +25,23 @@ public class UserServiceImpl implements UserServices {
     }
 
     @Override
-    public List<User> getUsers() {
+    public List<RegisterUser> getUsers() {
         return userRepository.findAll();
     }
 
     @Override
-    public User addUser(User user) {
+    public RegisterUser addUser(RegisterUser user) {
+        return null;
+        // return userRepository.save(user);
+    }
+
+    @Override
+    public RegisterUser updateUser(RegisterUser user) {
         return userRepository.save(user);
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public void deleteUser(User user) {
+    public void deleteUser(RegisterUser user) {
         userRepository.delete(user);
     }
 
