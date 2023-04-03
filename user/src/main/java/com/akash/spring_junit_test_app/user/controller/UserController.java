@@ -1,5 +1,6 @@
 package com.akash.spring_junit_test_app.user.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.akash.spring_junit_test_app.user.enities.TestEntity;
 import com.akash.spring_junit_test_app.user.enities.User;
 import com.akash.spring_junit_test_app.user.services.UserServices;
 import com.akash.spring_junit_test_app.user.util.PdfGenerator;
@@ -23,6 +25,9 @@ public class UserController {
 
     @Autowired
     private UserServices service;
+
+    @Autowired
+    private TestEntity testEntity;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<User> getAllUsers() {
@@ -75,4 +80,14 @@ public class UserController {
         generate.generateItierary(filepath);
         return "PDF Generated Successfully";
     }
+
+    public void testMethod(User user, ArrayList<Integer> testList, TestEntity testEntity) {
+        if (user.getId() == 2) {
+            testList.add(user.getId());
+        } else {
+            testList.add(999);
+        }
+        testEntity.setTestList(testList);
+    }
+
 }

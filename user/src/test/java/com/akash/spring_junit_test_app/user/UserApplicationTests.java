@@ -11,11 +11,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.engine.TestEngine;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.akash.spring_junit_test_app.user.controller.UserController;
+import com.akash.spring_junit_test_app.user.enities.TestEntity;
 import com.akash.spring_junit_test_app.user.enities.User;
 import com.akash.spring_junit_test_app.user.services.UserServices;
 
@@ -103,4 +105,12 @@ class UserApplicationTests {
 		assertEquals(response.getEmail(), user.getEmail());
 	}
 
+	@Test
+	void testVoidMethods() {
+		User user = new User(2, "Mahavir", "Ojha", "mhv@gmail.com");
+		TestEntity testEntity = new TestEntity();
+		testEntity.setTestList(new ArrayList<Integer>());
+		userController.testMethod(user, new ArrayList<Integer>(), testEntity);
+		assertEquals(user.getId(), testEntity.getTestList().get(0));
+	}
 }
