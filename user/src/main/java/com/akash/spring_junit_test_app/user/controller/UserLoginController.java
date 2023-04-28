@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.akash.spring_junit_test_app.user.ExpHandeller.InternalServerError;
 import com.akash.spring_junit_test_app.user.dto.LoginUser;
 import com.akash.spring_junit_test_app.user.dto.RegisterUser;
 import com.akash.spring_junit_test_app.user.services.RegisterUserService;
